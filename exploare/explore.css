@@ -47,8 +47,8 @@ a {
 
 .navbar {
     height: 72px;
-    background: #1b5e20;
-    color: #fff;
+    background: #fefefe;
+    color: #0d0d0d;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -73,7 +73,7 @@ a {
 }
 
 .nav-links a {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(9, 9, 9, 0.9);
     font-size: 0.95rem;
     font-weight: 500;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -81,7 +81,7 @@ a {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: #ff8f00;
+    box-shadow: #ff8f00;
 }
 
 .menu-btn {
@@ -96,8 +96,7 @@ a {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(27, 94, 32, 0.8), rgba(27, 94, 32, 0.8)),
-                url("https://images.unsplash.com/photo-1500534623283-312aade485b7") center/cover no-repeat;
+    background: linear-gradient(rgba(27, 94, 32, 0.8), rgba(27, 94, 32, 0.8)),url("https://images.unsplash.com/photo-1500534623283-312aade485b7") center/cover no-repeat;
     color: #fff;
     padding: 40px 20px;
 }
