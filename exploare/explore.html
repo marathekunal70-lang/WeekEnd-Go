@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore food, hotels, adventure, nature and unforgettable places near you with WeekendGo.">
+    <title>Explore | WeekendGo</title>
+    <link rel="stylesheet" href="explore.css">
+    <script href="explore.js"></script>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">
+            <span aria-hidden="true">🌍</span> WeekendGo
+        </div>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="explore.html" class="active" aria-current="page">Explore</a>
+            <a href="map.html">Map</a>
+            <a href="plan-trip.html">Plan Trip</a>
+            <a href="my-trips.html">My Trips</a>
+            <a href="login.html">Login</a>
+        </nav>
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            type="button"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="navLinks"
+        >☰</button>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="explore-hero">
+        <div class="hero-content">
+            <h1>Explore Your Next Weekend</h1>
+            <p>Discover amazing food, hotels, adventure, nature and unforgettable places.</p>
+
+            <form class="search-box" role="search">
+                <label for="searchInput" class="sr-only">Search places, cities or categories</label>
+                <input
+                    type="text"
+                    id="searchInput"
+                    name="q"
+                    placeholder="Search places, cities or categories..."
+                    autocomplete="off"
+                >
+                <button id="searchBtn" type="submit">
+                    <span aria-hidden="true">🔍</span> Search
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- MAIN CONTAINER -->
+    <main class="explore-container">
+
+        <!-- LOCATION BAR -->
+        <div class="location-bar">
+            <div>
+                <span class="location-icon" aria-hidden="true">📍</span>
+                <div>
+                    <small>Your Location</small>
+                    <h3 id="locationText">Nashik, Maharashtra</h3>
+                </div>
+            </div>
+            <button id="locationBtn" type="button">
+                <span aria-hidden="true">📍</span> Use My Location
+            </button>
+        </div>
+
+        <!-- CATEGORIES -->
+        <section class="category-section" aria-label="Filter places by category">
+            <div class="section-heading">
+                <h2>Explore Categories</h2>
+                <p>Find places according to your interests</p>
+            </div>
+
+            <div class="category-list" role="group" aria-label="Category filters">
+                <button class="category-btn active" type="button" data-category="all" aria-pressed="true">
+                    <span class="cat-icon" aria-hidden="true">🌍</span>
+                    <span>All</span>
+                </button>
+                <button class="category-btn" type="button" data-category="food" aria-pressed="false">
+                    <span class="cat-icon" aria-hidden="true">🍔</span>
+                    <span>Food</span>
+                </button>
+                <button class="category-btn" type="button" data-category="hotel" aria-pressed="false">
+                    <span class="cat-icon" aria-hidden="true">🏨</span>
+                    <span>Hotels</span>
+                </button>
+                <button class="category-btn" type="button" data-category="shopping" aria-pressed="false">
+                    <span class="cat-icon" aria-hidden="true">🛍️</span>
+                    <span>Shopping</span>
+                </button>
+                <button class="category-btn" type="button" data-category="adventure" aria-pressed="false">
+                    <span class="cat-icon" aria-hidden="true">🏔️</span>
+                    <span>Adventure</span>
+                </button>
+                <button class="category-btn" type="button" data-category="natural" aria-pressed="false">
+                    <span class="cat-icon" aria-hidden="true">🌳</span>
+                    <span>Natural</span>
+                </button>
+                <button class="category-btn" type="button" data-category="religious" aria-pressed="false">
+                    <span class="cat-icon" aria-hidden="true">🛕</span>
+                    <span>Religious</span>
+                </button>
+                <button class="category-btn" type="button" data-category="historical" aria-pressed="false">
+                    <span class="cat-icon" aria-hidden="true">🏛️</span>
+                    <span>Historical</span>
+                </button>
+                <button class="category-btn" type="button" data-category="relaxing" aria-pressed="false">
+                    <span class="cat-icon" aria-hidden="true">😌</span>
+                    <span>Relaxing</span>
+                </button>
+                <button class="category-btn" type="button" data-category="photography" aria-pressed="false">
+                    <span class="cat-icon" aria-hidden="true">📸</span>
+                    <span>Photography</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- PLACES HEADER & GRID -->
+        <section class="places-section">
+            <div class="places-header">
+                <div>
+                    <h2>Discover Amazing Places</h2>
+                    <p id="resultCount" aria-live="polite">Showing all places</p>
+                </div>
+                <div>
+                    <label for="sortSelect" class="sr-only">Sort places</label>
+                    <select id="sortSelect">
+                        <option value="default">Sort By</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="distance">Nearest</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- CARDS CONTAINER -->
+            <div class="places-grid" id="placesGrid" aria-live="polite"></div>
+
+            <!-- NO RESULTS -->
+            <div class="no-results" id="noResults">
+                <div aria-hidden="true">🔍</div>
+                <h3>No places found</h3>
+                <p>Try another search or category.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <div class="logo">🌍 WeekendGo</div>
+                <p>Discover. Plan. Explore. Go.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="explore.html">Explore</a>
+                <a href="map.html">Map</a>
+                <a href="plan-trip.html">Plan Trip</a>
+            </div>
+            <div>
+                <h4>Categories</h4>
+                <a href="#">Food</a>
+                <a href="#">Adventure</a>
+                <a href="#">Nature</a>
+                <a href="#">Photography</a>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p>📧 hello@weekendgo.com</p>
+                <p>📍 Maharashtra, India</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 WeekendGo. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="explore.js"></script>
+</body>
+</html>
