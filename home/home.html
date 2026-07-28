@@ -3,7 +3,7 @@
     <head>
         <title>home</title>
         <link rel="stylesheet" href="home.css">
-        <script href="home.js"></script>
+        <script src="home.js"></script>
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     </head>
     <body>
@@ -14,8 +14,8 @@
    </div>
 
   <ul class="nav-links">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Explore</a></li>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="../exploare/explore.html">Explore</a></li>
     <li><a href="#">About</a></li>
     <li><a href="#">Contact Us</a></li>
     <li><a href="#">Track Your Location</a></li>
@@ -24,14 +24,16 @@
 </nav>
 <div class="search-container">
     <i class="fa-solid fa-magnifying-glass"></i>
-<form action="/search-page" method="GET">
+<form action="../exploare/explore.html" method="GET" onsubmit="return searchLocation();">
   <input 
+    id="search"
     type="search" 
     name="q" 
-    placeholder="Enter city or destination..."class="placeholder"
+    placeholder="Enter city or destination..." class="placeholder"
     aria-label="Search content"
     required
   >
+  <button type="submit" class="search-btn">Search</button>
 </form>
 </div>
 <!-- <button type="button" id="locationBtn" onclick="getCurrentLocation()" class="location">
@@ -40,7 +42,6 @@
 <h1>Plan Your Perfect Weekend With WeekEnd Go</h1>
 <h3>WeekendGo is your smart travel companion that helps you explore nearby destinations, compare transportation options, discover the best places to eat and shop, and create personalized weekend plans based on your location and budget.</h3>
 <button class="btn">PlanMyTrip</button>
-<button class="btn1">Explore
-</button>
+<a href="../exploare/explore.html" class="btn btn1">Explore</a>
     </body>
 </html>

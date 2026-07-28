@@ -207,11 +207,6 @@ function updateDisplay() {
     }
 }
 
-// Setup — runs once the DOM is guaranteed to exist, no matter where the
-// <script> tag is placed (head, body, defer, etc). This is what the
-// previous version was missing: it read elements.noResults etc. at parse
-// time, so if the script ran before those nodes existed, every element in
-// `elements` was null and updateDisplay() threw on its first call.
 function init() {
     elements = {
         menuBtn: document.getElementById("menuBtn"),
@@ -226,6 +221,14 @@ function init() {
         locationBtn: document.getElementById("locationBtn"),
         locationText: document.getElementById("locationText")
     };
+
+    const queryParam = new URLSearchParams(window.location.search).get("q")?.trim() || "";
+    if (queryParam) {
+        state.searchQuery = queryParam;
+        if (elements.searchInput) {
+            elements.searchInput.value = queryParam;
+        }
+    }
 
     // Mobile Navigation
     elements.menuBtn?.addEventListener("click", () => {
