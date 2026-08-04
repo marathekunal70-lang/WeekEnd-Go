@@ -1,14 +1,12 @@
 function searchLocation(){
+    const placeInput = document.getElementById("search");
+    const place = placeInput ? placeInput.value.trim() : "";
 
-    let place = document.getElementById("search").value;
-
-    if(place==""){
-
+    if (!place) {
         alert("Please enter a destination.");
-        return;
-
+        return false;
     }
 
-    window.location.href = "explore.php?place=" + encodeURIComponent(place);
-
+    window.location.href = "../exploare/explore.html?q=" + encodeURIComponent(place);
+    return false;
 }
