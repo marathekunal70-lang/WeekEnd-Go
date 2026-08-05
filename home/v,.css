@@ -1,18 +1,13 @@
-/* Google Font Import */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
-/* CSS Variables for easy color customization */
 :root {
   --primary-color: #6366f1;
   --primary-hover: #4f46e5;
   --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-bg: rgba(255, 255, 255, 0.98);
   --text-main: #0f172a;
   --text-muted: #64748b;
   --border-color: #e2e8f0;
-  --input-focus: #818cf8;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
   --radius-lg: 16px;
   --radius-md: 10px;
 }
@@ -27,50 +22,162 @@
 body {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  background: var(--bg-gradient);
+  color: #ffffff;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container-fluid {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  height: 40px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+}
+
+.nav-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Hero Section (Start Screen) */
+.hero-container {
+  flex: 1;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-gradient);
+  text-align: center;
   padding: 20px;
 }
 
-/* Container & Card Layout */
-.login-wrapper {
-  width: 100%;
-  max-width: 440px;
+.hero-content h1 {
+  font-size: 42px;
+  margin-bottom: 16px;
 }
 
+.hero-content p {
+  font-size: 18px;
+  color: #94a3b8;
+  max-width: 500px;
+  margin: 0 auto 30px auto;
+}
+
+/* Main Login Open Button */
+.open-login-btn {
+  padding: 14px 36px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+}
+
+.open-login-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* Modal Background Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+/* Modal Open state */
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Login Card Popup */
 .login-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
   background: var(--card-bg);
   border-radius: var(--radius-lg);
   padding: 40px;
-  box-shadow: var(--shadow-lg);
-  backdrop-filter: blur(10px);
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
-/* Header */
+.modal-overlay.active .login-card {
+  transform: scale(1);
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: var(--text-main);
+}
+
+/* Form Styles */
 .card-header {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .card-header h2 {
   color: var(--text-main);
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  font-size: 24px;
 }
 
 .card-header p {
   color: var(--text-muted);
   font-size: 14px;
-  margin-top: 6px;
 }
 
-/* Social Buttons */
 .social-login {
   display: flex;
   gap: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .social-btn {
@@ -79,53 +186,37 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 16px;
-  background: #ffffff;
+  padding: 10px;
+  background: #fff;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   color: var(--text-main);
-  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: var(--shadow-sm);
 }
 
-.social-btn:hover {
-  background: #f8fafc;
-  border-color: #cbd5e1;
-  transform: translateY(-1px);
-}
-
-/* Divider */
 .divider {
   display: flex;
   align-items: center;
-  text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
-.divider::before,
-.divider::after {
+.divider::before, .divider::after {
   content: '';
   flex: 1;
   border-bottom: 1px solid var(--border-color);
 }
 
 .divider span {
-  padding: 0 12px;
+  padding: 0 10px;
   color: var(--text-muted);
   font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
-/* Inputs & Form */
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 
 .input-group {
@@ -137,7 +228,6 @@ body {
 .label-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 label {
@@ -150,11 +240,6 @@ label {
   font-size: 12px;
   color: var(--primary-color);
   text-decoration: none;
-  font-weight: 600;
-}
-
-.forgot-link:hover {
-  text-decoration: underline;
 }
 
 .input-field {
@@ -167,43 +252,19 @@ label {
   position: absolute;
   left: 14px;
   color: #94a3b8;
-  font-size: 15px;
-  pointer-events: none;
-  transition: color 0.2s ease;
 }
 
 .input-field input {
   width: 100%;
   padding: 12px 14px 12px 40px;
-  background: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  font-size: 14px;
-  color: var(--text-main);
   outline: none;
-  transition: all 0.2s ease;
-  box-shadow: var(--shadow-sm);
-}
-
-.input-field input::placeholder {
-  color: #94a3b8;
+  font-size: 14px;
 }
 
 .input-field input:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
-}
-
-.input-field input:focus + .input-icon,
-.input-field:focus-within .input-icon {
-  color: var(--primary-color);
-}
-
-/* Checkbox */
-.form-options {
-  display: flex;
-  align-items: center;
-  margin-top: 2px;
 }
 
 .remember-me {
@@ -212,47 +273,26 @@ label {
   gap: 8px;
   font-size: 13px;
   color: var(--text-muted);
-  cursor: pointer;
-  font-weight: 500;
 }
 
-.remember-me input {
-  accent-color: var(--primary-color);
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-}
-
-/* Submit Button */
 .submit-btn {
-  width: 100%;
   padding: 12px;
   background: var(--primary-color);
-  color: #ffffff;
+  color: #fff;
   border: none;
   border-radius: var(--radius-md);
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.3);
-  margin-top: 6px;
 }
 
 .submit-btn:hover {
   background: var(--primary-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 10px -1px rgba(99, 102, 241, 0.4);
 }
 
-.submit-btn:active {
-  transform: translateY(0);
-}
-
-/* Card Footer */
 .card-footer {
   text-align: center;
-  margin-top: 28px;
+  margin-top: 20px;
   font-size: 14px;
   color: var(--text-muted);
 }
@@ -261,15 +301,4 @@ label {
   color: var(--primary-color);
   text-decoration: none;
   font-weight: 600;
-}
-
-.card-footer a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 480px) {
-  .login-card {
-    padding: 28px 20px;
-  }
 }

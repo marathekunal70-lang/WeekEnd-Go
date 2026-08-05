@@ -1,0 +1,474 @@
+/* ==========================================================================
+   CSS Variables & Travel Design System
+   ========================================================================== */
+:root {
+  /* Bus & Transit Palette */
+  --primary: #0284c7;           /* Express Blue */
+  --primary-hover: #0369a1;     /* Deep Route Blue */
+  --accent: #f97316;            /* Sunset Highway Orange */
+  --accent-hover: #ea580c;      /* Sunset Dark Accent */
+  --accent-gold: #f59e0b;       /* Journey Amber */
+  
+  --slate-900: #0f172a;         /* Asphalt Dark */
+  --slate-800: #1e293b;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --slate-300: #cbd5e1;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50:  #f8fafc;
+  --white:     #ffffff;
+
+  /* Typography */
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Elevation & Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 10px 20px -3px rgba(15, 23, 42, 0.12), 0 4px 6px -4px rgba(15, 23, 42, 0.05);
+  --shadow-glow: 0 0 20px rgba(249, 115, 22, 0.25);
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--slate-50);
+  color: var(--slate-900);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Layout Container
+   ========================================================================== */
+.login-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--white);
+}
+
+/* ==========================================================================
+   Left Hero Section (Bus & Highway Vibe)
+   ========================================================================== */
+.hero-section {
+  flex: 1.25;
+  position: relative;
+  /* scenic road/bus trip background image */
+  background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=1600');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 56px;
+  overflow: hidden;
+}
+
+/* Highway Sunset Overlay */
+.hero-section .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg, 
+    rgba(15, 23, 42, 0.8) 0%, 
+    rgba(2, 132, 199, 0.65) 50%,
+    rgba(15, 23, 42, 0.92) 100%
+  );
+  z-index: 1;
+}
+
+/* Dashed Center-Line Design Element */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--accent-gold) 0px,
+    var(--accent-gold) 16px,
+    transparent 16px,
+    transparent 32px
+  );
+  z-index: 2;
+  opacity: 0.6;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Brand Logo (Express Badge Styling) */
+.brand-logo {
+  color: var(--white);
+  font-size: 26px;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: -0.5px;
+  transition: transform var(--transition-fast);
+}
+
+.brand-logo:hover {
+  transform: translateX(3px);
+}
+
+.brand-logo i {
+  color: var(--accent-gold);
+  filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.5));
+}
+
+/* Hero Content & Headlines */
+.hero-text h2 {
+  color: var(--white);
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.hero-text p {
+  color: var(--slate-200);
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 480px;
+  font-weight: 400;
+}
+
+/* Highway Ticket / Glass Badge */
+.hero-footer span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(15, 23, 42, 0.4);
+  padding: 10px 22px;
+  border-radius: 9999px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.hero-footer span::before {
+  content: '🚌';
+  font-size: 14px;
+}
+
+/* ==========================================================================
+   Right Form Section
+   ========================================================================== */
+.form-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 36px;
+  background-color: var(--white);
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 400px;
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-header {
+  margin-bottom: 32px;
+}
+
+.form-header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--slate-900);
+  margin-bottom: 8px;
+  letter-spacing: -0.75px;
+}
+
+.form-header p {
+  color: var(--slate-500);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Google OAuth Button */
+.btn-google {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: var(--white);
+  border: 1px solid var(--slate-200);
+  border-radius: 12px;
+  padding: 13px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--slate-700);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-google:hover {
+  background-color: var(--slate-50);
+  border-color: var(--slate-300);
+  color: var(--slate-900);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-google:active {
+  transform: translateY(0);
+}
+
+/* Route Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 28px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px dashed var(--slate-300);
+}
+
+.divider span {
+  padding: 0 16px;
+  color: var(--slate-400);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+/* ==========================================================================
+   Form Controls & Inputs
+   ========================================================================== */
+.input-group {
+  margin-bottom: 22px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-700);
+  margin-bottom: 8px;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forgot-link {
+  font-size: 13px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.forgot-link:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.input-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 13px 16px 13px 44px;
+  border: 1px solid var(--slate-300);
+  border-radius: 12px;
+  font-size: 14px;
+  color: var(--slate-900);
+  background-color: var(--white);
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.input-field input::placeholder {
+  color: var(--slate-400);
+}
+
+.input-field .icon {
+  position: absolute;
+  left: 16px;
+  color: var(--slate-400);
+  font-size: 18px;
+  pointer-events: none;
+  transition: color var(--transition-fast);
+}
+
+/* Focus & Interactive States */
+.input-field input:hover {
+  border-color: var(--slate-400);
+}
+
+.input-field input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+}
+
+.input-field input:focus ~ .icon,
+.input-field:focus-within .icon {
+  color: var(--primary);
+}
+
+/* Custom Checkbox */
+.form-options {
+  margin-bottom: 26px;
+}
+
+.remember-me {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--slate-600);
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+}
+
+.remember-me input {
+  accent-color: var(--primary);
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Primary Action Button (Sunset Travel CTA) */
+.btn-primary {
+  width: 100%;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.45);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.3);
+}
+
+/* Footer Link */
+.form-footer {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--slate-500);
+}
+
+.form-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.form-footer a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-section {
+    padding: 40px;
+  }
+  
+  .hero-text h2 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    display: none;
+  }
+
+  .form-section {
+    padding: 32px 24px;
+    background: linear-gradient(180deg, var(--slate-100) 0%, var(--slate-200) 100%);
+  }
+
+  .form-wrapper {
+    background-color: var(--white);
+    padding: 40px 28px;
+    border-radius: 20px;
+    border: 1px solid var(--slate-200);
+    box-shadow: var(--shadow-lg);
+  }
+}
