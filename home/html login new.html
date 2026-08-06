@@ -1,122 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeekEnd-Go | Login</title>
-    <!-- Font Awesome Icons ke liye -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeekEnd-Go | Your Perfect Weekend, All Planned</title>
+  <link rel="stylesheet" href="data.css">
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="page-container">
-        
-        <!-- Left Banner Section -->
-        <div class="left-section">
-            <div class="logo-container">
-                <div class="logo-icon"><i class="fa-solid fa-mountain-sun"></i></div>
-                <div class="logo-text">
-                    <h2>WeekEnd-Go</h2>
-                    <p>Your perfect weekend escape, easy.</p>
-                </div>
+  <div class="page-background"></div>
+
+  <div class="container">
+    <!-- Header Logo -->
+    <header class="header">
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fa-solid fa-mountain-sun"></i>
+        </div>
+        <div class="logo-text">
+          <h2>Week<span class="accent-orange">End</span>-Go</h2>
+          <p>Your perfect weekend escape, easy.</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="hero-content">
+      
+      <!-- Left Column: Copy & Action -->
+      <div class="hero-left">
+        <h1>Your Perfect Weekend.<br>All Planned.</h1>
+        <p>Explore weekend getaways, book trains, buses, and more – effortlessly.</p>
+        <a href="#" class="cta-button">
+          <i class="fa-solid fa-paper-plane"></i> Explore Destinations
+        </a>
+      </div>
+
+      <!-- Center Column: Phone Mockup -->
+      <div class="hero-center">
+        <div class="phone-frame">
+          <div class="phone-camera"></div>
+          <div class="phone-screen">
+            
+            <div class="app-header">
+              <div class="app-logo-icon">
+                <i class="fa-solid fa-mountain-sun"></i>
+              </div>
+              <h3>Week<span class="accent-orange">End</span>-Go</h3>
+              <p>Your Journey, Our Priority</p>
             </div>
 
-            <div class="main-heading">
-                <h1>Your Perfect Weekend.<br><span>All Planned.</span></h1>
-                <p>Explore weekend getaways, book trains, buses, and more – effortlessly.</p>
-                <button class="btn-explore">
-                    <i class="fa-solid fa-paper-plane"></i> Explore Destinations
-                </button>
+            <div class="app-card">
+              <h4>Welcome Back!</h4>
+              <p class="card-subtitle">Login to continue your journey</p>
+
+              <form class="login-form" onsubmit="event.preventDefault();">
+                <div class="input-field">
+                  <i class="fa-regular fa-envelope"></i>
+                  <input type="text" placeholder="Enter your email or mobile number">
+                </div>
+                <div class="input-field">
+                  <i class="fa-solid fa-lock"></i>
+                  <input type="password" placeholder="Enter your password">
+                  <a href="#" class="forgot-link">Forgot?</a>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+              </form>
+
+              <div class="divider">
+                <span>or continue with</span>
+              </div>
+
+              <div class="social-login">
+                <button class="social-btn"><i class="fa-brands fa-google" style="color: #ea4335;"></i></button>
+                <button class="social-btn"><i class="fa-brands fa-facebook-f" style="color: #1877f2;"></i></button>
+                <button class="social-btn"><i class="fa-brands fa-apple"></i></button>
+              </div>
+
+              <p class="signup-text">Don't have an account? <a href="#">Sign Up</a></p>
             </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Features -->
+      <div class="hero-right">
+        <div class="feature-card">
+          <div class="feature-icon icon-teal">
+            <i class="fa-solid fa-train"></i>
+          </div>
+          <div class="feature-info">
+            <h4>Train Tickets</h4>
+            <p>Secure your weekend ride</p>
+          </div>
         </div>
 
-        <!-- Center Phone UI Section -->
-        <div class="phone-wrapper">
-            <div class="phone-mockup">
-                <!-- Status Bar -->
-                <div class="status-bar">
-                    <span>9:41</span>
-                    <div class="status-icons">
-                        <i class="fa-solid fa-signal"></i>
-                        <i class="fa-solid fa-wifi"></i>
-                        <i class="fa-solid fa-battery-full"></i>
-                    </div>
-                </div>
-
-                <!-- App Header -->
-                <div class="app-header">
-                    <div class="app-logo">
-                        <i class="fa-solid fa-mountain-sun"></i>
-                    </div>
-                    <h3>WeekEnd-Go</h3>
-                    <p>Your Journey, Our Priority</p>
-                </div>
-
-                <!-- Login Form Container -->
-                <div class="login-card">
-                    <h4>Welcome Back!</h4>
-                    <p class="sub-text">Login to continue your journey</p>
-
-                    <form class="login-form">
-                        <div class="input-group">
-                            <i class="fa-regular fa-envelope"></i>
-                            <input type="text" placeholder="Enter your email or mobile number" required>
-                        </div>
-
-                        <div class="input-group">
-                            <i class="fa-solid fa-lock"></i>
-                            <input type="password" placeholder="Enter your password" required>
-                            <a href="#" class="forgot-pass">Forgot?</a>
-                        </div>
-
-                        <button type="submit" class="btn-login">Login</button>
-                    </form>
-
-                    <div class="divider">
-                        <span>or continue with</span>
-                    </div>
-
-                    <!-- Social Icons -->
-                    <div class="social-login">
-                        <button class="social-btn google"><i class="fa-brands fa-google"></i></button>
-                        <button class="social-btn facebook"><i class="fa-brands fa-facebook-f"></i></button>
-                        <button class="social-btn apple"><i class="fa-brands fa-apple"></i></button>
-                    </div>
-
-                    <p class="signup-text">Don't have an account? <a href="#">Sign Up</a></p>
-                </div>
-            </div>
+        <div class="feature-card">
+          <div class="feature-icon icon-coral">
+            <i class="fa-solid fa-bus"></i>
+          </div>
+          <div class="feature-info">
+            <h4>Bus Bookings</h4>
+            <p>Easy routes to new places</p>
+          </div>
         </div>
 
-        <!-- Right Side Features Cards -->
-        <div class="right-section">
-            <div class="feature-card">
-                <div class="feature-icon train"><i class="fa-solid fa-train"></i></div>
-                <div class="feature-info">
-                    <h4>Train Tickets</h4>
-                    <p>Secure your weekend ride</p>
-                </div>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon bus"><i class="fa-solid fa-bus"></i></div>
-                <div class="feature-info">
-                    <h4>Bus Bookings</h4>
-                    <p>Easy routes to new places</p>
-                </div>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon auto"><i class="fa-solid fa-taxi"></i></div>
-                <div class="feature-info">
-                    <h4>Auto Rides</h4>
-                    <p>Quick connections</p>
-                </div>
-            </div>
+        <div class="feature-card">
+          <div class="feature-icon icon-yellow">
+            <i class="fa-solid fa-taxi"></i>
+          </div>
+          <div class="feature-info">
+            <h4>Auto Rides</h4>
+            <p>Quick connections</p>
+          </div>
         </div>
+      </div>
 
-    </div>
+    </main>
+  </div>
 
 </body>
 </html>
