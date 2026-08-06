@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore food, hotels, adventure, nature and unforgettable places near you with WeekendGo.">
-    <title>Explore | WeekendGo</title>
+    <meta name="description" content="Explore India's complete tourism matrix across states, districts, talukas, cities, and villages with WeekendGo.">
+    <title>Explore All India Destinations | WeekendGo</title>
     <link rel="stylesheet" href="explore.css">
 </head>
 <body>
     <header class="navbar">
         <div class="logo">
-            <span aria-hidden="true">🌍</span> WeekendGo
+            <span aria-hidden="true">🗺️</span> WeekendGo India
         </div>
 
         <nav class="nav-links" id="navLinks">
-            <a href="../home/home.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="explore.html" class="active" aria-current="page">Explore</a>
-            <a href="#">Map</a>
+            <a href="#">Map View</a>
             <a href="#">Plan Trip</a>
             <a href="#">My Trips</a>
-            <a href="login/login.html">Login</a>
+            <a href="#">Login</a>
         </nav>
 
         <button
@@ -28,23 +28,22 @@
             type="button"
             aria-label="Toggle navigation menu"
             aria-expanded="false"
-            aria-controls="navLinks"
         >☰</button>
     </header>
 
     <!-- HERO SECTION -->
     <section class="explore-hero">
         <div class="hero-content">
-            <h1>Explore Your Next Weekend</h1>
-            <p>Discover amazing food, hotels, adventure, nature and unforgettable places.</p>
+            <h1>Explore Every Corner of India</h1>
+            <p>Find tourist attractions across all Villages, Cities, Talukas, Districts & States!</p>
 
-            <form class="search-box" role="search">
-                <label for="searchInput" class="sr-only">Search places, cities or categories</label>
+            <form class="search-box" id="searchForm" role="search">
+                <label for="searchInput" class="sr-only">Search India's tourist places, villages, talukas, or states</label>
                 <input
                     type="text"
                     id="searchInput"
                     name="q"
-                    placeholder="Search places, cities or categories..."
+                    placeholder="Search Village, City, Taluka, District, State, or Landmark..."
                     autocomplete="off"
                 >
                 <button id="searchBtn" type="submit">
@@ -63,11 +62,11 @@
                 <span class="location-icon" aria-hidden="true">📍</span>
                 <div>
                     <small>Your Location</small>
-                    <h3 id="locationText">Nashik, Maharashtra</h3>
+                    <h3 id="locationText">Nashik, Maharashtra, India</h3>
                 </div>
             </div>
             <button id="locationBtn" type="button">
-                <span aria-hidden="true">📍</span> Use My Location
+                <span aria-hidden="true">🎯</span> Detect My Location
             </button>
         </div>
 
@@ -75,78 +74,61 @@
         <section class="category-section" aria-label="Filter places by category">
             <div class="section-heading">
                 <h2>Explore Categories</h2>
-                <p>Find places according to your interests</p>
+                <p>Filter places tailored to your travel preference</p>
             </div>
 
             <div class="category-list" role="group" aria-label="Category filters">
-                <button class="category-btn active" type="button" data-category="all" aria-pressed="true">
-                    <span class="cat-icon" aria-hidden="true">🌍</span>
-                    <span>All</span>
+                <button class="category-btn active" type="button" data-category="all">
+                    <span class="cat-icon">🌍</span><span>All</span>
                 </button>
-                <button class="category-btn" type="button" data-category="food" aria-pressed="false">
-                    <span class="cat-icon" aria-hidden="true">🍔</span>
-                    <span>Food</span>
+                <button class="category-btn" type="button" data-category="religious">
+                    <span class="cat-icon">🛕</span><span>Religious</span>
                 </button>
-                <button class="category-btn" type="button" data-category="hotel" aria-pressed="false">
-                    <span class="cat-icon" aria-hidden="true">🏨</span>
-                    <span>Hotels</span>
+                <button class="category-btn" type="button" data-category="historical">
+                    <span class="cat-icon">🏛️</span><span>Historical</span>
                 </button>
-                <button class="category-btn" type="button" data-category="shopping" aria-pressed="false">
-                    <span class="cat-icon" aria-hidden="true">🛍️</span>
-                    <span>Shopping</span>
+                <button class="category-btn" type="button" data-category="natural">
+                    <span class="cat-icon">🌳</span><span>Nature</span>
                 </button>
-                <button class="category-btn" type="button" data-category="adventure" aria-pressed="false">
-                    <span class="cat-icon" aria-hidden="true">🏔️</span>
-                    <span>Adventure</span>
+                <button class="category-btn" type="button" data-category="adventure">
+                    <span class="cat-icon">🏔️</span><span>Adventure</span>
                 </button>
-                <button class="category-btn" type="button" data-category="natural" aria-pressed="false">
-                    <span class="cat-icon" aria-hidden="true">🌳</span>
-                    <span>Natural</span>
+                <button class="category-btn" type="button" data-category="beach">
+                    <span class="cat-icon">🏖️</span><span>Beaches</span>
                 </button>
-                <button class="category-btn" type="button" data-category="religious" aria-pressed="false">
-                    <span class="cat-icon" aria-hidden="true">🛕</span>
-                    <span>Religious</span>
-                </button>
-                <button class="category-btn" type="button" data-category="historical" aria-pressed="false">
-                    <span class="cat-icon" aria-hidden="true">🏛️</span>
-                    <span>Historical</span>
-                </button>
-                <button class="category-btn" type="button" data-category="relaxing" aria-pressed="false">
-                    <span class="cat-icon" aria-hidden="true">😌</span>
-                    <span>Relaxing</span>
-                </button>
-                <button class="category-btn" type="button" data-category="photography" aria-pressed="false">
-                    <span class="cat-icon" aria-hidden="true">📸</span>
-                    <span>Photography</span>
+                <button class="category-btn" type="button" data-category="wildlife">
+                    <span class="cat-icon">🐅</span><span>Wildlife</span>
                 </button>
             </div>
         </section>
 
-        <!-- PLACES HEADER & GRID -->
+        <!-- PLACES GRID & FILTER BAR -->
         <section class="places-section">
             <div class="places-header">
                 <div>
-                    <h2>Discover Amazing Places</h2>
-                    <p id="resultCount" aria-live="polite">Showing all places</p>
+                    <h2>Indian Tourist Destinations</h2>
+                    <p id="resultCount" aria-live="polite">Showing all destinations</p>
                 </div>
-                <div>
-                    <label for="sortSelect" class="sr-only">Sort places</label>
-                    <select id="sortSelect">
-                        <option value="default">Sort By</option>
+                
+                <div class="controls-wrapper">
+                    <select id="stateSelect" class="select-control">
+                        <option value="all">All States & Union Territories</option>
+                    </select>
+
+                    <select id="sortSelect" class="select-control">
+                        <option value="default">Sort By: Featured</option>
                         <option value="rating">Highest Rated</option>
                         <option value="distance">Nearest</option>
                     </select>
                 </div>
             </div>
 
-            <!-- CARDS CONTAINER -->
             <div class="places-grid" id="placesGrid" aria-live="polite"></div>
 
-            <!-- NO RESULTS -->
             <div class="no-results" id="noResults">
-                <div aria-hidden="true">🔍</div>
-                <h3>No places found</h3>
-                <p>Try another search or category.</p>
+                <div>🧭</div>
+                <h3>No Matching Tourist Destinations Found</h3>
+                <p>Try searching for another Village, Taluka, District, State, or Landmark!</p>
             </div>
         </section>
     </main>
@@ -155,31 +137,32 @@
     <footer class="footer">
         <div class="footer-content">
             <div>
-                <div class="logo">🌍 WeekendGo</div>
-                <p>Discover. Plan. Explore. Go.</p>
+                <div class="logo">🗺️ WeekendGo India</div>
+                <p>Empowering travelers to discover places across all states, union territories, districts, talukas, and villages of India.</p>
+            </div>
+            <div>
+                <h4>Popular Destinations</h4>
+                <a href="#">Maharashtra Tourism</a>
+                <a href="#">Goa Beaches</a>
+                <a href="#">Rajasthan Forts</a>
+                <a href="#">Kerala Backwaters</a>
+                <a href="#">Himachal Treks</a>
             </div>
             <div>
                 <h4>Quick Links</h4>
-                <a href="index.html">Home</a>
-                <a href="explore.html">Explore</a>
-                <a href="map.html">Map</a>
-                <a href="plan-trip.html">Plan Trip</a>
+                <a href="#">Home</a>
+                <a href="#">Explore Destinations</a>
+                <a href="#">Interactive Maps</a>
+                <a href="#">Trip Planner</a>
             </div>
             <div>
-                <h4>Categories</h4>
-                <a href="#">Food</a>
-                <a href="#">Adventure</a>
-                <a href="#">Nature</a>
-                <a href="#">Photography</a>
-            </div>
-            <div>
-                <h4>Contact</h4>
-                <p>📧 hello@weekendgo.com</p>
+                <h4>Contact Us</h4>
+                <p>📧 support@weekendgo.in</p>
                 <p>📍 Maharashtra, India</p>
             </div>
         </div>
         <div class="copyright">
-            © 2026 WeekendGo. All Rights Reserved.
+            © 2026 WeekendGo India. All Rights Reserved.
         </div>
     </footer>
 
